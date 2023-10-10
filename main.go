@@ -20,6 +20,7 @@ func main() {
 
 func BindingV1(c *gin.Context) {
 
+
 	c.JSON(http.StatusOK, "ok v1 hello")
 }
 
