@@ -1,33 +1,10 @@
 package main
 
-import (
-	"fmt"
-	"net/http"
-
-	"github.com/gin-gonic/gin"
-)
+import "github.com/jacktxyz/testing/srv"
 
 func main() {
-	r := gin.Default()
+	// testing srv
+	srv.Run()
 
-	r.GET("/v1/binding", BindingV1)
-
-	v2Group := r.Group("/v2/binding").Use(AuthV2)
-	v2Group.GET("/", BindingV2)
-
-	r.Run(":9990")
-}
-
-func BindingV1(c *gin.Context) {
-
-	c.JSON(http.StatusOK, "ok v1")
-}
-
-func BindingV2(c *gin.Context) {
-
-	c.JSON(http.StatusOK, "ok v2")
-}
-
-func AuthV2(c *gin.Context) {
-	fmt.Println("v2 authorized")
+	// testing.TestingS()
 }
