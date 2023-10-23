@@ -12,6 +12,13 @@ import (
 func Run() {
 	r := gin.Default()
 
+	go func() {
+		for {
+			time.Sleep(time.Second * 10)
+			fmt.Println("alive")
+		}
+	}()
+
 	r.GET("/v1/binding", BindingV1)
 
 	r.POST("/v1/hooks", Hooks)
